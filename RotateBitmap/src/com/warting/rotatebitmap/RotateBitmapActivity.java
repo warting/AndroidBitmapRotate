@@ -10,6 +10,7 @@ import android.view.View.OnClickListener;
 import android.widget.ImageView;
 
 public class RotateBitmapActivity extends Activity {
+
 	ImageView iv;
 	private Bitmap bitmap;
 
@@ -36,15 +37,12 @@ public class RotateBitmapActivity extends Activity {
 		});
 	}
 
-	private void rotate(float f) {
+	private void rotate(float degrees) {
 
 		Matrix rotateMatrix = new Matrix();
-		rotateMatrix.postRotate(f);
+		rotateMatrix.postRotate(degrees);
 
-		if (bitmap != null) {
-			bitmap = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), rotateMatrix, true);
-
-			iv.setImageBitmap(bitmap);
-		}
+		bitmap = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), rotateMatrix, true);
+		iv.setImageBitmap(bitmap);
 	}
 }
